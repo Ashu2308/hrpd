@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/bar-chart.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/users.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/new-pie.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/excel.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/excel-old.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/ajax-process.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/DAO/AreaDAO.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/DAO/ComplainDAO.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/excel-report.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/DAO/ReportDAO.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/resolve-complain.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/DAO/SubdivisionDAO.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/cronjob/send_daily_division_report_email.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/report.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/index.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/send_daily_division_report_email.php</file>
+            <file>file:/C:/xampp/htdocs/haryana_electricity/admin_services/css/custom.css</file>
+        </group>
+    </open-files>
+</project-private>

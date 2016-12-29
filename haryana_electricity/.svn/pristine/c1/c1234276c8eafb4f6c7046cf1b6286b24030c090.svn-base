@@ -1,0 +1,243 @@
+.navbar-inverse {
+    background-color: #FFF;
+    border-color: #EDEDED;
+}
+.side-nav{
+    background: #168eea;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    background: #EDEDED;
+    border-bottom: 1px solid #ccc;
+}
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/*
+.navbar-nav>li{
+    border-bottom: 1px solid #e7e7e7;
+}
+*/
+.page-header{
+    margin: 0;
+}
+.side-nav li a:hover, .side-nav li a:focus{
+    background: #168eea!important;
+}
+.center{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
+    background:#FFFFFF;
+    color: #000;
+}
+.navbar-inverse .navbar-brand{
+    background:#FFFFFF;
+    color: #000;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background: #168eea;
+    color: #FFFFFF;
+}.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+    color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+    color:#FFFFFF;
+    font-size: 14px;
+}
+#suggesstion-box ul{
+    /*margin: 0 5px 10px; */
+    padding: 0;
+    max-height: 200px;
+    border: 1px solid #337ab7;
+    /* border-radius: 5px; */
+    overflow: auto;
+    margin-top: -2px;
+    border-top: no;
+    border-top: none;
+}
+#suggesstion-box ul li{
+    list-style: none;
+    background: #ddd;
+    padding: 5px 10px;
+}
+#suggesstion-box ul li:hover{
+    cursor: pointer;
+    background: #337ab7;
+    color:#fff;
+}
+.navbar-inverse .navbar-toggle{
+    background: #000;
+}
+#add-new-user, #add-new-category{
+    cursor: pointer;
+}
+
+.form-control{
+    color:#555 ! important;
+}
+.error {
+    color: #ff0000;
+    font-weight: normal;
+}
+/*Updated CSS*/
+body{
+    color:#73879C;
+    background:#F7F7F7;
+}
+.btn{
+    padding:4px 8px;
+}
+.nav .fa{
+    width:1.2em;
+    font-size:1.2em ;
+    text-align:left;
+}
+.dropdown>a{
+    font-size:20px;
+}
+.navbar-brand{
+    padding:0;
+}
+.navbar{
+    border:none;
+}
+.table-responsive{
+    padding:10px;
+}
+.panel-primary>.panel-heading{
+    margin:0px 10px;
+    background-color: #FFF;
+    border-bottom: 2px solid #E6E9ED;
+}
+.panel-heading{
+    padding:10px 0;
+}
+.panel-primary{
+    border-color: #E6E9ED;
+}
+.table-responsive{
+    font-size:13px;
+}
+.star{
+    color: #F00;
+    font-size: 12px;
+    padding-left: 5px;
+}
+.timeEntry-control{
+    float: right;
+    margin-top: -27px;
+    margin-right: 5px;
+}
+
+#print-area{
+    clear: both;
+}
+aside h3{
+    display: none;
+}
+#selected-values{
+    display: none;
+    color:#ff0;
+}
+#complaint-legends{
+    margin-top: 50px;
+    float: left;
+    width: 24%;
+    display: block;
+}
+#complaint-legends table tbody tr td{
+    border: 1px solid #d4d4d4;
+    padding: 5px;
+    font-size: 13px;
+}
+#complaint-legends table tbody tr td:nth-child(2){
+    text-align: right;
+    font-weight: bold;
+}
+#complaint-legends h3.panel-title{
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+#complaint-legends table{
+    width: 100%;
+}
+@media print{
+    #complaint-legends h3.panel-title{
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    #complaint-legends table tbody tr td{
+        font-size: 11px;
+    }
+    aside h3{
+        border-bottom: 1px solid #E6E9ED;
+        width: 56%;
+        margin: 5px auto;
+        display: block;
+        text-align: center;
+    }
+    #print-area #selected-values{
+        text-align: center;
+        display: block;
+    }
+    #sel-form{
+        display: none;
+    }
+    #selected-values{
+        display: block;
+        color: #ff0;
+    }
+    .panel-heading{
+        display: none;
+    }
+    .print-head{
+        border-top: 1px solid #E6E9ED; padding-top:20px;
+    }
+    #selected-values {
+        color: #999 !important;
+        text-shadow: 0 0 0 #999 !important;
+    }
+    #pie svg{
+        width: 400px !important;
+        padding-left: 0px;
+        font-size: 10px;
+        display: inline-block;
+        float: left;
+    }
+    #complaint-legends{
+        display: block;
+        float: left;
+        font-size: 10px;
+        margin-top: 50px;
+        width: 24%;
+    }
+
+    @media print and (-webkit-min-device-pixel-ratio:0) {
+        #selected-values {
+            color: #999 !important;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+    @page{
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+    html{
+        background-color: #FFFFFF; 
+        margin: 0px;  /* this affects the margin on the html before sending to printer */
+    }
+    body{
+        margin: 30px 20px 0px 20px; /* margin you want for the content */
+    }
+}
+

@@ -1,0 +1,221 @@
+<?php
+
+require_once "DatabaseDAO.php";
+
+class ReportDAO {
+
+    function complainCloseInLessThanOneHour($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+            }if($last_months == 3){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;;
+            }
+            $sql = "SELECT 'Complaints closed in < 1 hrs' as label, count( * ) AS value
+                            FROM `hr_complain` 
+                            WHERE TIMESTAMPDIFF(SECOND, created_at, resolved_at)<3600 
+                            AND resolve_status = '1' $months ";
+                            
+            $database->query($sql);
+            //echo $sql;
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+	
+	function complainCloseInBetweenOneAndTwoHour($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+			}if($last_months == 3){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;;
+            }
+            $database->query("SELECT 'Complaints closed between 1-2 hrs' as label, count( * ) AS value
+							FROM `hr_complain` 
+							WHERE TIMESTAMPDIFF(SECOND, created_at, resolved_at)>=3600  
+							AND  TIMESTAMPDIFF(SECOND, created_at, resolved_at)<7200 
+							AND resolve_status = '1' $months ");
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+	
+	function complainCloseInBetweenTwoAndThreeHour($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+			}if($last_months == 3){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;;
+            }
+            $database->query("SELECT 'Complaints closed between 2-3 hrs' as label, count( * ) AS value
+							FROM `hr_complain` 
+							WHERE TIMESTAMPDIFF(SECOND, created_at, resolved_at)>=7200  
+							AND  TIMESTAMPDIFF(SECOND, created_at, resolved_at)<10800 
+							AND resolve_status = '1' $months ");
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+	
+	function complainCloseInBetweenThreeAndFourHour($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+			}if($last_months == 3){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;;
+            }
+            $database->query("SELECT 'Complaints closed between 3-4 hrs' as label, count( * ) AS value
+						FROM `hr_complain` 
+						WHERE TIMESTAMPDIFF(SECOND, created_at, resolved_at)>=10800  
+						AND  TIMESTAMPDIFF(SECOND, created_at, resolved_at)<14400 
+						AND resolve_status = '1' $months ");
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+	
+	function complainCloseInGreaterThanFourHour($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+			}if($last_months == 3){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;;
+            }
+            $database->query("SELECT 'Complaints closed in >4 hrs' as label, count( * ) AS value
+							FROM `hr_complain` 
+							WHERE TIMESTAMPDIFF(SECOND, created_at, resolved_at)>=14400 
+							AND resolve_status = '1' $months ");
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+
+    //Function for getting data for the line graph
+    function totalComplaintCreated($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+			}if($last_months == 3){
+                $months = " AND MONTH(created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;
+            }
+            $sql = "SELECT DATE(created_at) AS date, count(*) as value FROM hr_complain WHERE complain_id > 0 $months GROUP BY date";
+            //echo $sql;
+            $database->query($sql);
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+    //Function for getting data for the line graph
+    function highestComplaintCategory($last_months, $district) {
+        try {
+            $database = new Database();
+            if($district>0){
+                $district = " AND hc.division_id=".$district;
+            }else {
+                $district = '';
+            }
+            if($last_months == 1){
+                $months = " AND MONTH(hc.created_at) = MONTH(NOW())".$district;;
+            }if($last_months == 2){
+                $months = " AND MONTH(hc.created_at) = MONTH(NOW()- INTERVAL 1 MONTH)".$district;;
+			}if($last_months == 3){
+                $months = " AND MONTH(hc.created_at) = MONTH(NOW()- INTERVAL 2 MONTH)".$district;;
+            }if($last_months == 4){
+                $months = "".$district;
+            }
+            $database->query("SELECT hcc.desciption as complaint_category, count(*) as total_complaint from hr_complain as hc INNER JOIN hr_complain_category as hcc ON hc.complain_category_id = hcc.complain_category_id WHERE complain_id > 0 $months GROUP BY hcc.complain_category_id ORDER BY total_complaint DESC LIMIT 0,5");
+            $result = $database->resultset();
+            $database = null;
+            return $result;
+        } catch (Exception $e) {
+            // not a MySQL exception
+            echo '{"error":{"text":' . $e->getMessage() . '}}';
+        }
+    }
+}//end of class
+
+?>

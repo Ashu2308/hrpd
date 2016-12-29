@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbarheight"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/logo"
+    android:id="@+id/logo"
+    android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fsdfsd"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
+
+
+        <RelativeLayout
+            android:id="@+id/nav_rellay_menu"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:visibility="visible"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/nav_img_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/nav_menu" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.Toolbar>
+

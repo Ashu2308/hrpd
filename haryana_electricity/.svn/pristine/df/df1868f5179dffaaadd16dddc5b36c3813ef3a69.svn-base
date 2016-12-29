@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/requestdetail_toolbar"></include>
+
+
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_top_pendingdetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="2dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true"
+        android:visibility="visible">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+            <RelativeLayout
+                android:id="@+id/card_child_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/lblname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dummy"
+                    android:text="Mohan Kumar Mishra"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/grey" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_child_2"
+                android:layout_below="@+id/card_child_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/customerid"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy1"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/lblcustomerid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dummy1"
+                    android:text="10096052"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/grey" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_child_3"
+                android:layout_below="@+id/card_child_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Mobile:"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy2"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+                <RelativeLayout
+                    android:id="@+id/call_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/dummy2"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/calltext"
+                        android:text="+919555575231"
+                        android:autoLink="phone"
+                        android:clickable="false"
+                        android:linksClickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/grey" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_child_4"
+                android:layout_below="@+id/card_child_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/address"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy3"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/lbladdress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dummy3"
+                    android:text="G-19 Krishna Apra, Netaji Subahsh Place. Pitam Pura New Delhi -110034"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/grey" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_child_5"
+                android:layout_below="@+id/card_child_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/complaincategory"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy6"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/lblcompaincategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dummy6"
+                    android:text="@string/description"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/grey" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_child_6"
+                android:layout_below="@+id/card_child_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/reporteddate"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy4"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/lblreporteddate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dummy4"
+                    android:text="11 April 2016, 2:15 Am"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/grey" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_child_7"
+                android:layout_below="@+id/card_child_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/resolvedate"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/dummy5"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/lblresolvedate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dummy5"
+                    android:text="Pending"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/grey" />
+            </RelativeLayout>
+            <ProgressBar
+                android:id="@+id/pbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+               android:layout_below="@+id/card_child_5"
+                android:layout_marginTop="3dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_pendingcategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card_top_pendingdetail"
+
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:clickable="true"
+        android:padding="2dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+           >
+
+
+            <!--<Spinner
+                android:id="@+id/category_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:spinnerMode="dialog"
+                android:layout_gravity="center_horizontal" />-->
+            <TextView
+                android:id="@+id/txt_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toastcategorymsg"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:textColor="@color/text_color"
+                android:layout_toLeftOf="@+id/downarrow"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"/>
+<ImageView
+    android:id="@+id/downarrow"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/downarrow"
+    android:layout_marginRight="5dp"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <Button
+        android:id="@+id/btn_resolved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:text="@string/resolved"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white" />
+    <!--<ProgressBar
+        android:id="@+id/pbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="3dp"
+        android:visibility="visible" />-->
+
+</RelativeLayout>

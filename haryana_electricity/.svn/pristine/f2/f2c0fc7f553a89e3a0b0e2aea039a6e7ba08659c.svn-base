@@ -1,0 +1,195 @@
+<?php 
+include_once('DAO/ReportDAO.php');
+
+//Creating objects
+$ReportDAO = new ReportDAO();
+$last_months = date('m');
+$year = date('Y');
+if(isset( $_SESSION['area_id'])){
+  $district = $_SESSION['area_id'];
+}else{
+  $district = 0;
+}
+$report_data = $ReportDAO->totalComplaintCreated($last_months, $year, $district);
+
+//echo json_encode($report_data);
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style>
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+/* CSS from http://cssarrowplease.com */
+.arrow_box { padding:10px;z-index:9999;position:absolute;background: #4682b4; border: 1px solid #4682b4; color: #fff; left:15px; border-radius: 5px; } 
+.arrow_box:after, .arrow_box:before { right: 100%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; } 
+.arrow_box:after { border-color: rgba(136, 183, 213, 0); border-right-color: #4682b4; border-width: 10px; top: 50%; margin-top: -10px; } 
+.arrow_box:before { border-color: rgba(194, 225, 245, 0); border-right-color: #4682b4; border-width: 16px; top: 50%; margin-top: -16px; }
+</style>
+</head>
+<body>
+
+    <div id="line-graph"></div>
+<script src="js/chart/d3.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#last-months, #district").on('change', function(){
+      var months = $("#last-months option:selected").attr('data-month');
+      var year = $("#last-months option:selected").attr('data-year');
+      var district = $("#district option:selected").val();
+      var formURL = "ajax-process.php?action=refresh-line-graph&months="+months+"&year="+year+"&district="+district;
+      //alert(formURL);
+      $.ajax({
+            url: formURL,
+            type: "POST",
+            async: false,
+            cache: false,
+            //data: postData,
+            error: function () {
+                //return true;
+            },
+            success: function (result)
+            {
+                if (result != ''){
+                  //remove previous graph
+                  //alert(result);
+                  $("#line-graph").html('');
+                  
+                  //Initialized Graph with current response
+                  data = result;
+                  line_graph(data);                            
+                } else{
+                    alert("Something going wrong");
+                }
+            }
+        });
+    });
+   var data = {};
+  //data = [{"date":"2016-07-21","value":"6"},{"date":"2016-07-22","value":"2"},{"date":"2016-07-25","value":"6"},{"date":"2016-07-26","value":"5"},{"date":"2016-07-27","value":"4"},{"date":"2016-08-02","value":"1"},{"date":"2016-08-30","value":"1"},{"date":"2016-09-01","value":"1"}];
+  
+
+});
+
+$(document).ready(function(){
+  data = '<?php echo json_encode($report_data) ?>';
+  line_graph(data); 
+});
+
+function line_graph(data){
+var data = data;
+var margin = {top: 10, right: 50, bottom: 20, left: 100},
+width = 950 - margin.left - margin.right,
+height = 250 - margin.top - margin.bottom;
+
+var dateFormat = d3.time.format("%Y-%m-%d");
+
+var highest = Math.max.apply(this,$.map($.parseJSON(data), function(o){ return o.value; }));
+
+var x = d3.time.scale()
+.range([0, width]);
+
+var y = d3.scale.linear()
+.domain([highest+50,0])
+.range([0, height]);
+
+var xAxis = d3.svg.axis()
+.scale(x)
+.orient("bottom");
+
+var yAxis = d3.svg.axis()
+.scale(y)
+.orient("left");
+
+var line = d3.svg.line()
+
+.x(function(d) { return x(d.date); })
+.y(function(d) { return y(d.value); });
+
+
+var svg = d3.select("#line-graph").append("svg")
+.attr("width", width + margin.left + margin.right)
+.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//d3.json(data, function(error, data) {
+
+ 
+data = JSON.parse(data);
+    data.forEach(function(d) {
+        d.date = dateFormat.parse(d.date);
+        d.value = d.value;
+    })
+
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    //y.domain(d3.extent(data, function(d) { return d.vaue; }));
+    //y.domain([500, 0]);
+
+    svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+    svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("No. of Complaints");
+    points = svg.append("path")
+    .datum(data).attr("class", "line")
+    .attr("d", line);
+
+    svg.selectAll("circle")
+    .data(data)
+    .enter().append("circle")
+    .attr("fill", "steelblue")
+    .attr("r", 5)
+    .attr("cx", function(d) { return x(d.date); })
+    .attr("cy", function(d) { return y(d.value)})
+    .attr("class", "dot")
+    .attr("data-text", function(d) { return dateFormat(d.date)+": ("+d.value+" Complaints)" });
+    //});
+
+
+
+$('circle').on('mouseover mouseleave', function(e) {
+        if (e.type == 'mouseover') {
+      var posx = 0;
+      var posy = 0;
+      if (!e) var e = window.event;
+      if (e.pageX || e.pageY)   {
+    posx = e.pageX;
+    posy = e.pageY;
+      } else if (e.clientX || e.clientY)  {
+    posx = e.clientX + document.body.scrollLeft
+                + document.documentElement.scrollLeft;
+    posy = e.clientY + document.body.scrollTop
+                + document.documentElement.scrollTop;
+      }
+      $('<div class="arrow_box" style="top:'+(posy - 20)+'px;left:'+(posx + 15)+'px;">'+$(this).data("text")+'</div>').on("mouseleave", function() {$(this).remove(); }).appendTo("body"); 
+        } else {
+      $(".arrow_box").remove();
+        }
+    });
+}
+
+</script>
+</body>
+</html>
